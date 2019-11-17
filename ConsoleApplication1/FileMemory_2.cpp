@@ -1,18 +1,18 @@
 #include "stdafx.h"
-#include "FileMemory.h"
+#include "FileMemory_2.h"
 #include <atlstr.h>
 
-FileMemory::FileMemory()
+FileMemory_2::FileMemory_2()
 {
 	init();
 }
 
 
-FileMemory::~FileMemory()
+FileMemory_2::~FileMemory_2()
 {
 }
 
-void FileMemory::init()
+void FileMemory_2::init()
 {
 	// Создаем или открываем семафоры
 
@@ -21,14 +21,14 @@ void FileMemory::init()
 	createFile("File_1");
 }
 
-void FileMemory::put(string str)
+void FileMemory_2::put(string str)
 {
 	WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
 
-	// Сереализуем объект в строку
-	// ...
-
-	/// Пишем строку в файл
+												// Сереализуем объект в строку
+												// ...
+	cout << " ща запишем : " << str << endl;
+												/// Пишем строку в файл
 	vector<CHAR> buffer(str.begin(), str.end());
 	buffer.push_back(_T('\0'));
 	CHAR* p = &buffer[0];
@@ -43,22 +43,22 @@ void FileMemory::put(string str)
 }
 
 
-string FileMemory::get()
+string FileMemory_2::get()
 {
 	WaitForSingleObject(hSem_get, INFINITE);		// 
 
-	// Изымаем из файла данные
+													// Изымаем из файла данные
 	std::string result((char*)Buffer);
-	
+
 	// Десериализуем объект из строки
 	// ...
-	cout << "получено сообщение   " << endl;
+
 	ReleaseSemaphore(hSem_put, 1, NULL);			// 
 	return result;
 }
 
 // Переводит строку в нужный формат для создания семафора
-wstring FileMemory::s2ws(const std::string & s)
+wstring FileMemory_2::s2ws(const std::string & s)
 {
 	int len;
 	int slength = (int)s.length() + 1;
@@ -71,7 +71,7 @@ wstring FileMemory::s2ws(const std::string & s)
 }
 
 // Создает системный семафор с заданным именем
-HANDLE FileMemory::createOrOpenSemaphore(string hSemName, int startStatus)
+HANDLE FileMemory_2::createOrOpenSemaphore(string hSemName, int startStatus)
 {
 	HANDLE sem = OpenSemaphore(SEMAPHORE_ALL_ACCESS, true, (s2ws(hSemName)).c_str());
 	if (sem == NULL) {
@@ -90,13 +90,13 @@ HANDLE FileMemory::createOrOpenSemaphore(string hSemName, int startStatus)
 }
 
 // Создаем файл отображаемый на память
-void FileMemory::createFile(string name)
+void FileMemory_2::createFile(string name)
 {
 	FileMem = OpenFileMapping(
 		FILE_MAP_ALL_ACCESS,
 		// все права на файл, кроме FILE_MAP_EXECUTE
 		false,     //  handle  не наследуется при CreateProcess
-		(s2ws(name)).c_str() );
+		(s2ws(name)).c_str());
 	if (FileMem == NULL) {
 		FileMem = CreateFileMapping(
 			(HANDLE)0xFFFFFFFF,
@@ -118,9 +118,10 @@ void FileMemory::createFile(string name)
 			FILE_MAP_ALL_ACCESS,
 			0, 0,  // смещение
 			4096);   // длина данных
-	} else {
+	}
+	else {
 		printf("error: FILE_MAP \n"); // Все плохо!!!!
 	}
-	
+
 	this->Buffer = buf;
 }
