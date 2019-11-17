@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kruchkova_5.2", "kruchkova_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.vcxproj", "{370D7F81-86CC-4DAA-B803-1E186EE47FD0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CerealTest", "CerealTest\CerealTest.vcxproj", "{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{370D7F81-86CC-4DAA-B803-1E186EE47FD0}.Release|x64.Build.0 = Release|x64
 		{370D7F81-86CC-4DAA-B803-1E186EE47FD0}.Release|x86.ActiveCfg = Release|Win32
 		{370D7F81-86CC-4DAA-B803-1E186EE47FD0}.Release|x86.Build.0 = Release|Win32
+		{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}.Debug|x64.ActiveCfg = Debug|x64
+		{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}.Debug|x64.Build.0 = Debug|x64
+		{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}.Debug|x86.ActiveCfg = Debug|Win32
+		{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}.Debug|x86.Build.0 = Debug|Win32
+		{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}.Release|x64.ActiveCfg = Release|x64
+		{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}.Release|x64.Build.0 = Release|x64
+		{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}.Release|x86.ActiveCfg = Release|Win32
+		{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

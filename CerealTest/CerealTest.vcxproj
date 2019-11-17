@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{BB0CB1F0-2125-4508-BE5E-21113EE26BC9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CerealTest</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\access.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\adapters.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\binary.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\json.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\portable_binary.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\xml.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\cereal.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\helpers.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\polymorphic_impl.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\polymorphic_impl_fwd.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\static_object.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\traits.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\util.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\base64.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\allocators.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\cursorstreamwrapper.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\document.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\encodedstream.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\encodings.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\error\en.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\error\error.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\filereadstream.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\filewritestream.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\fwd.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\biginteger.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\diyfp.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\dtoa.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\ieee754.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\itoa.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\meta.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\pow10.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\regex.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\stack.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\strfunc.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\strtod.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\swap.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\istreamwrapper.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\memorybuffer.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\memorystream.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\pointer.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\prettywriter.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\rapidjson.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\reader.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\schema.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\stream.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\stringbuffer.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\writer.h" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\rapidxml.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\rapidxml_iterators.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\rapidxml_print.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\rapidxml_utils.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\macros.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\specialize.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\array.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\atomic.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\base_class.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\bitset.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\boost_variant.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\chrono.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\common.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\complex.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\concepts\pair_associative_container.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\deque.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\forward_list.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\functional.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\list.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\map.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\memory.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\optional.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\polymorphic.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\queue.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\set.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\stack.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\string.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\tuple.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\unordered_map.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\unordered_set.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\utility.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\valarray.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\variant.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\vector.hpp" />
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\version.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CerealTest.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\manual.html" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

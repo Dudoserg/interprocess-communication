@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\access.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\adapters.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\binary.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\json.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\portable_binary.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\archives\xml.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\cereal.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\helpers.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\polymorphic_impl.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\polymorphic_impl_fwd.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\static_object.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\traits.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\details\util.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\base64.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\allocators.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\cursorstreamwrapper.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\document.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\encodedstream.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\encodings.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\error\en.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\error\error.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\filereadstream.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\filewritestream.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\fwd.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\biginteger.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\diyfp.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\dtoa.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\ieee754.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\itoa.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\meta.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\pow10.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\regex.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\stack.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\strfunc.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\strtod.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\internal\swap.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\istreamwrapper.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\memorybuffer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\memorystream.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\msinttypes\inttypes.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\msinttypes\stdint.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\ostreamwrapper.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\pointer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\prettywriter.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\rapidjson.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\reader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\schema.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\stream.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\stringbuffer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidjson\writer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\rapidxml.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\rapidxml_iterators.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\rapidxml_print.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\rapidxml_utils.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\macros.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\specialize.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\array.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\atomic.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\base_class.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\bitset.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\boost_variant.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\chrono.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\common.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\complex.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\concepts\pair_associative_container.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\deque.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\forward_list.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\functional.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\list.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\map.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\memory.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\optional.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\polymorphic.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\queue.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\set.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\stack.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\string.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\tuple.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\unordered_map.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\unordered_set.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\utility.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\valarray.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\variant.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\types\vector.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\version.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CerealTest.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\AppData\Local\Temp\Rar$DRa0.228\cereal-master\include\cereal\external\rapidxml\manual.html" />
+  </ItemGroup>
+</Project>

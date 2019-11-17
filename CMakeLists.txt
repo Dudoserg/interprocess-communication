@@ -1,0 +1,124 @@
+cmake_minimum_required(VERSION 3.15)
+project(kruchkova_5_2)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(CerealTest)
+include_directories(CerealTest/cereal)
+include_directories(CerealTest/cereal/archives)
+include_directories(CerealTest/cereal/details)
+include_directories(CerealTest/cereal/external)
+include_directories(CerealTest/cereal/external/rapidjson)
+include_directories(CerealTest/cereal/external/rapidjson/error)
+include_directories(CerealTest/cereal/external/rapidjson/internal)
+include_directories(CerealTest/cereal/external/rapidjson/msinttypes)
+include_directories(CerealTest/cereal/external/rapidxml)
+include_directories(CerealTest/cereal/types)
+include_directories(CerealTest/cereal/types/concepts)
+include_directories(CerealTest/Debug)
+include_directories(ConsoleApplication1)
+include_directories(ConsoleApplication1/Debug)
+include_directories(kruchkova_5.2)
+include_directories(kruchkova_5.2/Debug)
+
+add_executable(kruchkova_5_2
+        CerealTest/cereal/archives/adapters.hpp
+        CerealTest/cereal/archives/binary.hpp
+        CerealTest/cereal/archives/json.hpp
+        CerealTest/cereal/archives/portable_binary.hpp
+        CerealTest/cereal/archives/xml.hpp
+        CerealTest/cereal/details/helpers.hpp
+        CerealTest/cereal/details/polymorphic_impl.hpp
+        CerealTest/cereal/details/polymorphic_impl_fwd.hpp
+        CerealTest/cereal/details/static_object.hpp
+        CerealTest/cereal/details/traits.hpp
+        CerealTest/cereal/details/util.hpp
+        CerealTest/cereal/external/rapidjson/error/en.h
+        CerealTest/cereal/external/rapidjson/error/error.h
+        CerealTest/cereal/external/rapidjson/internal/biginteger.h
+        CerealTest/cereal/external/rapidjson/internal/diyfp.h
+        CerealTest/cereal/external/rapidjson/internal/dtoa.h
+        CerealTest/cereal/external/rapidjson/internal/ieee754.h
+        CerealTest/cereal/external/rapidjson/internal/itoa.h
+        CerealTest/cereal/external/rapidjson/internal/meta.h
+        CerealTest/cereal/external/rapidjson/internal/pow10.h
+        CerealTest/cereal/external/rapidjson/internal/regex.h
+        CerealTest/cereal/external/rapidjson/internal/stack.h
+        CerealTest/cereal/external/rapidjson/internal/strfunc.h
+        CerealTest/cereal/external/rapidjson/internal/strtod.h
+        CerealTest/cereal/external/rapidjson/internal/swap.h
+        CerealTest/cereal/external/rapidjson/msinttypes/inttypes.h
+        CerealTest/cereal/external/rapidjson/msinttypes/stdint.h
+        CerealTest/cereal/external/rapidjson/allocators.h
+        CerealTest/cereal/external/rapidjson/cursorstreamwrapper.h
+        CerealTest/cereal/external/rapidjson/document.h
+        CerealTest/cereal/external/rapidjson/encodedstream.h
+        CerealTest/cereal/external/rapidjson/encodings.h
+        CerealTest/cereal/external/rapidjson/filereadstream.h
+        CerealTest/cereal/external/rapidjson/filewritestream.h
+        CerealTest/cereal/external/rapidjson/fwd.h
+        CerealTest/cereal/external/rapidjson/istreamwrapper.h
+        CerealTest/cereal/external/rapidjson/memorybuffer.h
+        CerealTest/cereal/external/rapidjson/memorystream.h
+        CerealTest/cereal/external/rapidjson/ostreamwrapper.h
+        CerealTest/cereal/external/rapidjson/pointer.h
+        CerealTest/cereal/external/rapidjson/prettywriter.h
+        CerealTest/cereal/external/rapidjson/rapidjson.h
+        CerealTest/cereal/external/rapidjson/reader.h
+        CerealTest/cereal/external/rapidjson/schema.h
+        CerealTest/cereal/external/rapidjson/stream.h
+        CerealTest/cereal/external/rapidjson/stringbuffer.h
+        CerealTest/cereal/external/rapidjson/writer.h
+        CerealTest/cereal/external/rapidxml/rapidxml.hpp
+        CerealTest/cereal/external/rapidxml/rapidxml_iterators.hpp
+        CerealTest/cereal/external/rapidxml/rapidxml_print.hpp
+        CerealTest/cereal/external/rapidxml/rapidxml_utils.hpp
+        CerealTest/cereal/external/base64.hpp
+        CerealTest/cereal/types/concepts/pair_associative_container.hpp
+        CerealTest/cereal/types/array.hpp
+        CerealTest/cereal/types/atomic.hpp
+        CerealTest/cereal/types/base_class.hpp
+        CerealTest/cereal/types/bitset.hpp
+        CerealTest/cereal/types/boost_variant.hpp
+        CerealTest/cereal/types/chrono.hpp
+        CerealTest/cereal/types/common.hpp
+        CerealTest/cereal/types/complex.hpp
+        CerealTest/cereal/types/deque.hpp
+        CerealTest/cereal/types/forward_list.hpp
+        CerealTest/cereal/types/functional.hpp
+        CerealTest/cereal/types/list.hpp
+        CerealTest/cereal/types/map.hpp
+        CerealTest/cereal/types/memory.hpp
+        CerealTest/cereal/types/optional.hpp
+        CerealTest/cereal/types/polymorphic.hpp
+        CerealTest/cereal/types/queue.hpp
+        CerealTest/cereal/types/set.hpp
+        CerealTest/cereal/types/stack.hpp
+        CerealTest/cereal/types/string.hpp
+        CerealTest/cereal/types/tuple.hpp
+        CerealTest/cereal/types/unordered_map.hpp
+        CerealTest/cereal/types/unordered_set.hpp
+        CerealTest/cereal/types/utility.hpp
+        CerealTest/cereal/types/valarray.hpp
+        CerealTest/cereal/types/variant.hpp
+        CerealTest/cereal/types/vector.hpp
+        CerealTest/cereal/access.hpp
+        CerealTest/cereal/cereal.hpp
+        CerealTest/cereal/macros.hpp
+        CerealTest/cereal/specialize.hpp
+        CerealTest/cereal/version.hpp
+        CerealTest/Debug/CerealTest.pch
+        CerealTest/CerealTest.cpp
+        CerealTest/stdafx.cpp
+        CerealTest/stdafx.h
+        CerealTest/targetver.h
+        ConsoleApplication1/Debug/ConsoleApplication1.pch
+        ConsoleApplication1/ConsoleApplication1.cpp
+        ConsoleApplication1/stdafx.cpp
+        ConsoleApplication1/stdafx.h
+        ConsoleApplication1/targetver.h
+        kruchkova_5.2/Debug/kruchkova_5.2.pch
+        kruchkova_5.2/kruchkova_5.2.cpp
+        kruchkova_5.2/stdafx.cpp
+        kruchkova_5.2/stdafx.h
+        kruchkova_5.2/targetver.h)
