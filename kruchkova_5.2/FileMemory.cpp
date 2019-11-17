@@ -16,8 +16,8 @@ void FileMemory::init()
 {
 	// Создаем или открываем семафоры
 
-	hSem_put = createOrOpenSemaphore("SemPut_1");
-	hSem_put = createOrOpenSemaphore("SemGet_1");
+	hSem_put = createOrOpenSemaphore("SemPut_1", 1);
+	hSem_get = createOrOpenSemaphore("SemGet_1", 1);
 	createFile("File_1");
 }
 
@@ -72,12 +72,17 @@ wstring FileMemory::s2ws(const std::string & s)
 }
 
 // Создает системный семафор с заданным именем
-HANDLE FileMemory::createOrOpenSemaphore(string hSemName)
+HANDLE FileMemory::createOrOpenSemaphore(string hSemName, int startStatus)
 {
 	HANDLE sem = OpenSemaphore(SEMAPHORE_ALL_ACCESS, true, (s2ws(hSemName)).c_str());
 	if (sem == NULL) {
 		cout << "Семафор не открылся, Создаем " << endl;
-		sem = CreateSemaphore(NULL, 1, 1, (s2ws(hSemName)).c_str());
+		sem = CreateSemaphore(
+			NULL,// нет атрибута
+			startStatus,// начальное состояние
+			1,// максимальное состояние
+			(s2ws(hSemName)).c_str() //  имени
+		);
 	}
 	else {
 		cout << "Семафор открылся!  =) " << endl;

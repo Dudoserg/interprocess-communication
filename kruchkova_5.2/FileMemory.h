@@ -32,7 +32,7 @@ public:
 
 private:
 	wstring s2ws(const std::string& s);
-	HANDLE createOrOpenSemaphore(string name);
+	HANDLE createOrOpenSemaphore(string name, int startStatus);
 
 	void createFile(string name);
 };
