@@ -7,7 +7,10 @@ public:
 	enum class Enum
 	{
 		BUYER,
-		DISPATCHER
+		DISPATCHER,
+		COURIER,
+		COOK,
+		FRIDGE
 	};
 
 	static std::string toString(Enum myEnum) {
@@ -18,6 +21,18 @@ public:
 			}
 			case PersonType::Enum::DISPATCHER: {
 				return "DISPATCHER";
+				break;
+			}
+			case PersonType::Enum::COURIER: {
+				return "COURIER";
+				break;
+			}
+			case PersonType::Enum::COOK: {
+				return "COOK";
+				break;
+			}
+			case PersonType::Enum::FRIDGE: {
+				return "FRIDGE";
 				break;
 			}
 		}
