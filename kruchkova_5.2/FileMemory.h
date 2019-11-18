@@ -74,14 +74,14 @@ public:
 		return result;
 	}
 
-	void putMessage(Message message) {
+	void putMessage(Message *message) {
 		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
 
 		// Сереализуем объект в строку
 		std::stringstream os;
 		{
 			cereal::JSONOutputArchive archive_out(os);
-			archive_out(CEREAL_NVP(message));
+			archive_out(CEREAL_NVP(*message));
 		}
 		string str = os.str();
 		
@@ -98,7 +98,7 @@ public:
 		// освобождаем семафор на чтение, теперь с файла можно читать, т.к. мы записали в него инфу
 		ReleaseSemaphore(hSem_get, 1, NULL);		
 	}
-	Message getMessage() {
+	Message *getMessage() {
 		WaitForSingleObject(hSem_get, INFINITE);		// 
 
 		// Изымаем из файла данные
@@ -106,10 +106,10 @@ public:
 
 		// Десериализуем объект из строки
 		std::stringstream is(result);
-		Message message;
+		Message *message = new Message();
 		{
 			cereal::JSONInputArchive archive_in(is);
-			archive_in(message);
+			archive_in(*message);
 		}
 
 		// освобождаем семафор на запись, теперь в файл можно писать, т.к. инфу считали
