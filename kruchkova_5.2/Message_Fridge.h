@@ -29,6 +29,7 @@ public:
 		status = 99;
 	}
 
+	Message_Fridge() {};
 	~Message_Fridge() {};
 
 	void putInMap(Products::Enum str, int count) {
@@ -62,7 +63,7 @@ public:
 	void serialize(Archive & ar)
 	{
 		//ar(personType, personName, message, *vec, *help);
-		ar(personType, personName, message);
+		ar(personType, personName, *m);
 	}
 };
 
