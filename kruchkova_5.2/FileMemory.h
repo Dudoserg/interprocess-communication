@@ -30,6 +30,13 @@ public:
 		init();
 	}
 
+	FileMemory(string name) {
+		this->semPutName = name + string("_PUT");
+		this->semGetName = name + string("_GET");
+		this->fileMemoryName = name + string("_FILE");
+		init();
+	}
+
 	~FileMemory() {
 	}
 
