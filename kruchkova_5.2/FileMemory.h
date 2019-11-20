@@ -7,6 +7,7 @@
 #include <string>
 #include <atlstr.h>
 #include "Message.h"
+#include "Message_Fridge.h"
 
 #include"cereal/types/unordered_map.hpp"
 #include "cereal/types/memory.hpp"
@@ -68,6 +69,7 @@ public:
 
 		ReleaseSemaphore(hSem_get, 1, NULL);		// освобождаем семафор на чтение, теперь с файла можно читать, т.к. мы записали в него инфу
 	}
+
 	string get() {
 		WaitForSingleObject(hSem_get, INFINITE);		// 
 
@@ -105,6 +107,7 @@ public:
 		// освобождаем семафор на чтение, теперь с файла можно читать, т.к. мы записали в него инфу
 		ReleaseSemaphore(hSem_get, 1, NULL);		
 	}
+
 	Message *getMessage() {
 		WaitForSingleObject(hSem_get, INFINITE);		// 
 
@@ -124,7 +127,51 @@ public:
 		return message;
 	}
 
-	
+
+
+	void putMessage(Message_Fridge *message) {
+		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
+
+													// Сереализуем объект в строку
+		std::stringstream os;
+		{
+			cereal::JSONOutputArchive archive_out(os);
+			archive_out(CEREAL_NVP(*message));
+		}
+		string str = os.str();
+
+		/// Пишем строку в файл
+		vector<CHAR> buffer(str.begin(), str.end());
+		buffer.push_back(_T('\0'));
+		CHAR* p = &buffer[0];
+
+		SIZE_T cbData = (str.size() + 1) * sizeof(CHAR);
+
+		//CopyMemory((PVOID)Buffer, param, (_tcslen(param) * sizeof(TCHAR)));
+		CopyMemory((PVOID)Buffer, p, cbData);
+
+		// освобождаем семафор на чтение, теперь с файла можно читать, т.к. мы записали в него инфу
+		ReleaseSemaphore(hSem_get, 1, NULL);
+	}
+
+	Message *getMessage() {
+		WaitForSingleObject(hSem_get, INFINITE);		// 
+
+														// Изымаем из файла данные
+		std::string result((char*)Buffer);
+
+		// Десериализуем объект из строки
+		std::stringstream is(result);
+		Message_Fridge *message = new Message_Fridge();
+		{
+			cereal::JSONInputArchive archive_in(is);
+			archive_in(*message);
+		}
+
+		// освобождаем семафор на запись, теперь в файл можно писать, т.к. инфу считали
+		ReleaseSemaphore(hSem_put, 1, NULL);
+		return message;
+	}
 
 
 private:
