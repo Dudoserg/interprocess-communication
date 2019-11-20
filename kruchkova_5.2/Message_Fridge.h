@@ -17,6 +17,7 @@ private :
 	PersonType::Enum personType;
 	string personName;
 	map<Products::Enum, int> *m;
+	int status;
 public:
 
 
@@ -25,6 +26,7 @@ public:
 		this->personType = person.personType;
 		this->personName = person.personName;
 		m = new map<Products::Enum, int>;
+		status = 99;
 	}
 
 	~Message_Fridge() {};
@@ -47,6 +49,13 @@ public:
 
 	PersonType::Enum getPersonType() {
 		return personType;
+	}
+
+	void setStatus(int x) {
+		status = x;
+	}
+	int getStatus() {
+		return status;
 	}
 
 	template<class Archive> // public serialization (normal)

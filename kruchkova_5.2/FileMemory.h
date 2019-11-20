@@ -154,7 +154,7 @@ public:
 		ReleaseSemaphore(hSem_get, 1, NULL);
 	}
 
-	Message *getMessage() {
+	Message_Fridge *getMessage_Fridge() {
 		WaitForSingleObject(hSem_get, INFINITE);		// 
 
 														// Изымаем из файла данные
