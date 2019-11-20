@@ -12,25 +12,28 @@ using namespace std;
 
 class Message_Fridge
 {
-private :
-
+public:
 	PersonType::Enum personType;
 	string personName;
 	map<Products::Enum, int> *m;
 	int status;
-public:
-
 
 
 	Message_Fridge(Person &person) {
+		init();
 		this->personType = person.personType;
 		this->personName = person.personName;
+	}
+
+	Message_Fridge() {
+		init();
+	};
+	~Message_Fridge() {};
+
+	void init() {
 		m = new map<Products::Enum, int>;
 		status = 99;
 	}
-
-	Message_Fridge() {};
-	~Message_Fridge() {};
 
 	void putInMap(Products::Enum str, int count) {
 		(*m)[str] = count;
@@ -63,7 +66,7 @@ public:
 	void serialize(Archive & ar)
 	{
 		//ar(personType, personName, message, *vec, *help);
-		ar(personType, personName, *m);
+		ar(personType, personName, *m, status);
 	}
 };
 

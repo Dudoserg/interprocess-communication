@@ -19,20 +19,15 @@ public: //function declarations
 	//Help *help;
 
 	Message() {
-		init();
 	}
 
 	Message(Person &person, string message) {
-		init();
 		this->personType = person.personType;
 		this->personName = person.personName;
 		this->message = message;
 	}
 
-	void init() {
-		//this->vec = new vector<string>;
-		//this->help = new Help;
-	}
+
 
 	template<class Archive> // public serialization (normal)
 	void serialize(Archive & ar)

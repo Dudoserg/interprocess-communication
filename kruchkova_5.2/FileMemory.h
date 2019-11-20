@@ -162,6 +162,7 @@ public:
 
 		// Десериализуем объект из строки
 		std::stringstream is(result);
+		cout << result << endl;
 		Message_Fridge *message = new Message_Fridge();
 		{
 			cereal::JSONInputArchive archive_in(is);
