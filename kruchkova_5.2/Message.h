@@ -22,7 +22,7 @@ public: //function declarations
 		init();
 	}
 
-	Message(Person person, string message) {
+	Message(Person &person, string message) {
 		init();
 		this->personType = person.personType;
 		this->personName = person.personName;
