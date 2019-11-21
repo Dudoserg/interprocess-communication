@@ -49,7 +49,8 @@ public:
 		createFile(fileMemoryName);
 
 	}
-
+	// put get string
+	/*
 	void put(string str) {
 		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
 
@@ -82,6 +83,7 @@ public:
 		ReleaseSemaphore(hSem_put, 1, NULL);			// 
 		return result;
 	}
+	*/
 
 	void putMessage(Message *message) {
 		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
