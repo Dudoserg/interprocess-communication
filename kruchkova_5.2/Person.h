@@ -1,5 +1,15 @@
+#include <windows.h>
+#include <stdio.h>
+
+#include <thread>
+#include <random>
+
+
+
+
 #include <string>
 #include <chrono>
+#include <iostream>
 #include "PersonType.h"
 
 using namespace std::chrono;

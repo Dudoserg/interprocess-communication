@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A2C14A7C-A561-4291-B510-E67072040E1B}</ProjectGuid>
+    <ProjectGuid>{AD5FD258-7C28-4295-99AB-55D43271EC41}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>kruchkova52</RootNamespace>
+    <RootNamespace>Test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -90,6 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Dudoserg\source\repos\kruchkova_5.2\kruchkova_5.2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,33 +148,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EndFlagFileMemory.h" />
-    <ClInclude Include="FileMemory.h" />
-    <ClInclude Include="Message.h" />
-    <ClInclude Include="Message_Fridge.h" />
-    <ClInclude Include="MySem.h" />
-    <ClInclude Include="Person.h" />
-    <ClInclude Include="PersonType.h" />
-    <ClInclude Include="Products.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EndFlagFileMemory.cpp" />
-    <ClCompile Include="FileMemory.cpp" />
-    <ClCompile Include="kruchkova_5.2.cpp" />
-    <ClCompile Include="Message.cpp" />
-    <ClCompile Include="Message_Fridge.cpp" />
-    <ClCompile Include="MySem.cpp" />
-    <ClCompile Include="Person.cpp" />
-    <ClCompile Include="PersonType.cpp" />
-    <ClCompile Include="Products.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
