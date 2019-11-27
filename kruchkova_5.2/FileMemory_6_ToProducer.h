@@ -61,114 +61,123 @@ public:
 		hSem_get = createOrOpenSemaphore(semGetName, 0, maxState);
 
 		hSem_put = createOrOpenSemaphore(semWriteName, 1, 1);
-		createFile(fileMemoryName);
+		bool opened = openOrcreateFile(fileMemoryName);
+		if (opened == false) {
+			//Запишем туда массив для хранения сообщений
+			Message_arr_6 * message_arr_6 = new Message_arr_6();
+			// Сериализуем в строку
+			std::stringstream os;
+			{
+				cereal::JSONOutputArchive archive_out(os);
+				archive_out(CEREAL_NVP(*message_arr_6));
+			}
+			string message_arr_string_afterPush = os.str();
+			// пишем строку в файл
+			vector<CHAR> buffer(message_arr_string_afterPush.begin(), message_arr_string_afterPush.end());
+			buffer.push_back(_T('\0'));
+			CHAR* p = &buffer[0];
 
-		// Запишем туда массив для хранения сообщений
-		//Message_arr_6 * message_arr_6 = new Message_arr_6();
-		//// Сериализуем в строку
-		//std::stringstream os;
-		//{
-		//	cereal::JSONOutputArchive archive_out(os);
-		//	archive_out(CEREAL_NVP(*message_arr_6));
-		//}
-		//string message_arr_string_afterPush = os.str();
-		//// пишем строку в файл
-		//vector<CHAR> buffer(message_arr_string_afterPush.begin(), message_arr_string_afterPush.end());
-		//buffer.push_back(_T('\0'));
-		//CHAR* p = &buffer[0];
-
-		//SIZE_T cbData = (message_arr_string_afterPush.size() + 1) * sizeof(CHAR);
-		//CopyMemory((PVOID)Buffer, p, cbData);
+			SIZE_T cbData = (message_arr_string_afterPush.size() + 1) * sizeof(CHAR);
+			CopyMemory((PVOID)Buffer, p, cbData);
+		}
+		
 	}
 
 
 	void putMessage_6(Message_6 *currentMessage) {
-		//WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
+		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
 
 
-		//WaitForSingleObject(this->hSem_write, INFINITE);	// Зашита для записи в канал
-		//													// т.к. в канал имеет размер >1, 
-		//													// и в него одновременно могут писать несколько процессов
-		//													// Читам строку из файла
-		//std::string message_arr_string((char*)Buffer);
-		//// Десериализуем из строки объект массив сообщений
-		//std::stringstream is(message_arr_string);
-		//Message_arr_6 *message_arr_6 = new Message_arr_6();
-		//{
-		//	cereal::JSONInputArchive archive_in(is);
-		//	archive_in(*message_arr_6);
-		//}
-		//// добавляем туда текущее сообщение
+		WaitForSingleObject(this->hSem_write, INFINITE);	// Зашита для записи в канал
+															// т.к. в канал имеет размер >1, 
+															// и в него одновременно могут писать несколько процессов
+															// Читам строку из файла
+		std::string message_arr_string((char*)Buffer);
+		cout << message_arr_string << endl;
+		// Десериализуем из строки объект массив сообщений
+		std::stringstream is(message_arr_string);
+		Message_arr_6 *message_arr_6 = new Message_arr_6();
+		{
+			cereal::JSONInputArchive archive_in(is);
+			archive_in(*message_arr_6);
+		}
+		// добавляем туда текущее сообщение
 		//message_arr_6->data->push_back(currentMessage);
-		//// Сериализуем в строку
-		//std::stringstream os;
-		//{
-		//	cereal::JSONOutputArchive archive_out(os);
-		//	archive_out(CEREAL_NVP(*message_arr_6));
-		//}
-		//string message_arr_string_afterPush = os.str();
-		//// пишем строку в файл
-		//vector<CHAR> buffer(message_arr_string_afterPush.begin(), message_arr_string_afterPush.end());
-		//buffer.push_back(_T('\0'));
-		//CHAR* p = &buffer[0];
+		message_arr_6->data->push_back(std::unique_ptr<Message_6>(currentMessage));
 
-		//SIZE_T cbData = (message_arr_string_afterPush.size() + 1) * sizeof(CHAR);
-		//CopyMemory((PVOID)Buffer, p, cbData);
+		// Сериализуем в строку
+		std::stringstream os;
+		{
+			cereal::JSONOutputArchive archive_out(os);
+			archive_out(CEREAL_NVP(*message_arr_6));
+		}
+		string message_arr_string_afterPush = os.str();
+		cout << message_arr_string_afterPush << endl;
+		// пишем строку в файл
+		vector<CHAR> buffer(message_arr_string_afterPush.begin(), message_arr_string_afterPush.end());
+		buffer.push_back(_T('\0'));
+		CHAR* p = &buffer[0];
+
+		SIZE_T cbData = (message_arr_string_afterPush.size() + 1) * sizeof(CHAR);
+		CopyMemory((PVOID)Buffer, p, cbData);
 
 
-		//ReleaseSemaphore(this->hSem_write, 1, NULL);					// Отпускаем семафор на запись в файл
+		ReleaseSemaphore(this->hSem_write, 1, NULL);					// Отпускаем семафор на запись в файл
 
 
-		//																// освобождаем семафор на чтение, теперь с файла можно читать, т.к. мы записали в него инфу
-		//ReleaseSemaphore(hSem_get, 1, NULL);
+																		// освобождаем семафор на чтение, теперь с файла можно читать, т.к. мы записали в него инфу
+		ReleaseSemaphore(hSem_get, 1, NULL);
 	}
 
 	Message_6 *getMessage_6() {
-		////WaitForSingleObject(hSem_get, INFINITE);		// 
+		WaitForSingleObject(hSem_get, INFINITE);		// 
 
-		////WaitForSingleObject(this->hSem_write, INFINITE);	// Зашита для записи в канал
-		////													// т.к. в канал имеет размер >1, 
-		////													// и в него одновременно могут писать несколько процессов
-		////													// Изымаем строку из файла
-		////std::string result((char*)Buffer);
-		////// Десериализуем
-		////std::stringstream is(result);
-		////Message_arr_6 *message_arr_6 = new Message_arr_6();
-		////{
-		////	cereal::JSONInputArchive archive_in(is);
-		////	archive_in(*message_arr_6);
-		////}
-		////// Проверяем, есть ли сообщение для нашего id.
+		WaitForSingleObject(this->hSem_write, INFINITE);	// Зашита для записи в канал
+															// т.к. в канал имеет размер >1, 
+															// и в него одновременно могут писать несколько процессов
+															// Изымаем строку из файла
+		std::string result((char*)Buffer);
+		cout << result << endl;
+		// Десериализуем
+		std::stringstream is(result);
+		Message_arr_6 *message_arr_6 = new Message_arr_6();
+		{
+			cereal::JSONInputArchive archive_in(is);
+			archive_in(*message_arr_6);
+		}
+		// Проверяем, есть ли сообщение для нашего id.
 	
-		////Message_6 * message = NULL;
+		Message_6 * message = NULL;
 
 
-		//////	Изымаем сообщение
-		////message = (*message_arr_6->data)[0];
-		////(*message_arr_6->data).erase((*message_arr_6->data).begin() + 0);
-		//////	Сериализуем массив без одного сообщения
-		////std::stringstream os;
-		////{
-		////	cereal::JSONOutputArchive archive_out(os);
-		////	archive_out(CEREAL_NVP(*message_arr_6));
-		////}
-		////string message_arr_string_afterGET = os.str();
-		//////	Пишем массив в виде строки в файл
-		////vector<CHAR> buffer(message_arr_string_afterGET.begin(), message_arr_string_afterGET.end());
-		////buffer.push_back(_T('\0'));
-		////CHAR* p = &buffer[0];
+		//	Изымаем сообщение
+		//message = (*message_arr_6->data)[0];
+		message = (*message_arr_6->data)[0].get();
+		(*message_arr_6->data).erase((*message_arr_6->data).begin() + 0);
+		//	Сериализуем массив без одного сообщения
+		std::stringstream os;
+		{
+			cereal::JSONOutputArchive archive_out(os);
+			archive_out(CEREAL_NVP(*message_arr_6));
+		}
+		string message_arr_string_afterGET = os.str();
+		cout << message_arr_string_afterGET << endl;
+		//	Пишем массив в виде строки в файл
+		vector<CHAR> buffer(message_arr_string_afterGET.begin(), message_arr_string_afterGET.end());
+		buffer.push_back(_T('\0'));
+		CHAR* p = &buffer[0];
 
-		////SIZE_T cbData = (message_arr_string_afterGET.size() + 1) * sizeof(CHAR);
-		////CopyMemory((PVOID)Buffer, p, cbData);
+		SIZE_T cbData = (message_arr_string_afterGET.size() + 1) * sizeof(CHAR);
+		CopyMemory((PVOID)Buffer, p, cbData);
 
-		////ReleaseSemaphore(this->hSem_write, 1, NULL);					// Отпускаем семафор на запись в файл
-
-
-		//////	освобождаем семафор на запись, теперь в файл можно писать, т.к. мы СЧИТАЛИ с него инфу
-		////ReleaseSemaphore(hSem_put, 1, NULL);
+		ReleaseSemaphore(this->hSem_write, 1, NULL);					// Отпускаем семафор на запись в файл
 
 
-		////return message;
+		//	освобождаем семафор на запись, теперь в файл можно писать, т.к. мы СЧИТАЛИ с него инфу
+		ReleaseSemaphore(hSem_put, 1, NULL);
+
+
+		return message;
 	}
 
 private:
@@ -203,13 +212,16 @@ private:
 		return sem;
 	}
 
-	void createFile(string name) {
+	bool openOrcreateFile(string name) {
 		FileMem = OpenFileMapping(
 			FILE_MAP_ALL_ACCESS,
 			// все права на файл, кроме FILE_MAP_EXECUTE
 			false,     //  handle  не наследуется при CreateProcess
 			(s2ws(name)).c_str());
+		bool open = true;
+
 		if (FileMem == NULL) {
+			open = false;
 			FileMem = CreateFileMapping(
 				(HANDLE)0xFFFFFFFF,
 				//   INVALID_HANDLE_VALUE --- СОЗДАЕМ НОВЫЙ
@@ -236,6 +248,7 @@ private:
 		}
 
 		this->Buffer = buf;
+		return open;
 	}
 
 };

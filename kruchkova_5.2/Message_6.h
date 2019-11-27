@@ -23,6 +23,7 @@ public:
 	Message_6(Person &person, string message) {
 		this->personType = person.personType;
 		this->personName = person.personName;
+		this->message = message;
 		this->personId = person.id;
 	}
 

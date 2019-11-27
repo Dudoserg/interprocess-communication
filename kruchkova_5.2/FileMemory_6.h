@@ -61,22 +61,25 @@ public:
 		hSem_get = createOrOpenSemaphore(semGetName, 0, maxState);
 
 		hSem_put = createOrOpenSemaphore(semWriteName, 1, 1);
-		createFile(fileMemoryName);
-		Message_arr_6 * message_arr_6 = new Message_arr_6();
-		// Сериализуем в строку
-		std::stringstream os;
-		{
-			cereal::JSONOutputArchive archive_out(os);
-			archive_out(CEREAL_NVP(*message_arr_6));
-		}
-		string message_arr_string_afterPush = os.str();
-		// пишем строку в файл
-		vector<CHAR> buffer(message_arr_string_afterPush.begin(), message_arr_string_afterPush.end());
-		buffer.push_back(_T('\0'));
-		CHAR* p = &buffer[0];
+		bool opened = openOrcreateFile(fileMemoryName);
+		if (opened == false) {
+			//Запишем туда массив для хранения сообщений
+			Message_arr_6 * message_arr_6 = new Message_arr_6();
+			// Сериализуем в строку
+			std::stringstream os;
+			{
+				cereal::JSONOutputArchive archive_out(os);
+				archive_out(CEREAL_NVP(*message_arr_6));
+			}
+			string message_arr_string_afterPush = os.str();
+			// пишем строку в файл
+			vector<CHAR> buffer(message_arr_string_afterPush.begin(), message_arr_string_afterPush.end());
+			buffer.push_back(_T('\0'));
+			CHAR* p = &buffer[0];
 
-		SIZE_T cbData = (message_arr_string_afterPush.size() + 1) * sizeof(CHAR);
-		CopyMemory((PVOID)Buffer, p, cbData);
+			SIZE_T cbData = (message_arr_string_afterPush.size() + 1) * sizeof(CHAR);
+			CopyMemory((PVOID)Buffer, p, cbData);
+		}
 	}
 
 
@@ -89,6 +92,7 @@ public:
 															// и в него одновременно могут писать несколько процессов
 		// Читам строку из файла
 		std::string message_arr_string((char*)Buffer);
+		cout << message_arr_string << endl;
 		// Десериализуем из строки объект массив сообщений
 		std::stringstream is(message_arr_string);
 		Message_arr_6 *message_arr_6 = new Message_arr_6();
@@ -97,7 +101,7 @@ public:
 			archive_in(*message_arr_6);
 		}
 		// добавляем туда текущее сообщение
-		message_arr_6->data->push_back(currentMessage);
+		message_arr_6->data->push_back(std::unique_ptr<Message_6>(currentMessage));
 		// Сериализуем в строку
 		std::stringstream os;
 		{
@@ -105,6 +109,7 @@ public:
 			archive_out(CEREAL_NVP(*message_arr_6));
 		}
 		string message_arr_string_afterPush = os.str();
+		cout << message_arr_string_afterPush << endl;
 		// пишем строку в файл
 		vector<CHAR> buffer(message_arr_string_afterPush.begin(), message_arr_string_afterPush.end());
 		buffer.push_back(_T('\0'));
@@ -129,6 +134,7 @@ public:
 															// и в него одновременно могут писать несколько процессов
 		// Изымаем строку из файла
 		std::string result((char*)Buffer);
+		cout << result << endl;
 		// Десериализуем
 		std::stringstream is(result);
 		Message_arr_6 *message_arr_6 = new Message_arr_6();
@@ -149,7 +155,7 @@ public:
 		if (foundMessage == true) {
 			//		Если есть, то :	
 			//						Изымаем сообщение
-			message = (*message_arr_6->data)[index];
+			message = (*message_arr_6->data)[index].get();
 			(*message_arr_6->data).erase((*message_arr_6->data).begin() + index);
 			//						Сериализуем массив без одного сообщения
 			std::stringstream os;
@@ -158,6 +164,7 @@ public:
 				archive_out(CEREAL_NVP(*message_arr_6));
 			}
 			string message_arr_string_afterGET = os.str();
+			cout << message_arr_string_afterGET << endl;
 			//						Пишем строку в файл
 			vector<CHAR> buffer(message_arr_string_afterGET.begin(), message_arr_string_afterGET.end());
 			buffer.push_back(_T('\0'));
@@ -212,13 +219,16 @@ private:
 		return sem;
 	}
 
-	void createFile(string name) {
+	bool openOrcreateFile(string name) {
 		FileMem = OpenFileMapping(
 			FILE_MAP_ALL_ACCESS,
 			// все права на файл, кроме FILE_MAP_EXECUTE
 			false,     //  handle  не наследуется при CreateProcess
 			(s2ws(name)).c_str());
+		bool open = true;
+
 		if (FileMem == NULL) {
+			open = false;
 			FileMem = CreateFileMapping(
 				(HANDLE)0xFFFFFFFF,
 				//   INVALID_HANDLE_VALUE --- СОЗДАЕМ НОВЫЙ
@@ -245,6 +255,7 @@ private:
 		}
 
 		this->Buffer = buf;
+		return open;
 	}
 
 };

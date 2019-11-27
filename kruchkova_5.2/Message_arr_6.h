@@ -15,10 +15,12 @@ public:
 
 	Message_arr_6() {
 		data = new vector<unique_ptr<Message_6>>;
+		/*unique_ptr<Message_6> ptr(new Message_6());
+		data->push_back(ptr);*/
 	};
 	~Message_arr_6() {};
 
-	template<class Archive> // public serialization (normal)
+	template<class Archive> 
 	void serialize(Archive & ar)
 	{
 		//ar(personType, personName, message, *vec, *help);
