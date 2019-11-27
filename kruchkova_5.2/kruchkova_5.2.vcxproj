@@ -150,6 +150,7 @@
     <ClInclude Include="EndFlagFileMemory.h" />
     <ClInclude Include="FileMemory.h" />
     <ClInclude Include="FileMemory_6.h" />
+    <ClInclude Include="FileMemory_6_ToProducer.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Message_6.h" />
     <ClInclude Include="Message_arr_6.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="EndFlagFileMemory.cpp" />
     <ClCompile Include="FileMemory.cpp" />
     <ClCompile Include="FileMemory_6.cpp" />
+    <ClCompile Include="FileMemory_6_ToProducer.cpp" />
     <ClCompile Include="kruchkova_5.2.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Message_6.cpp" />

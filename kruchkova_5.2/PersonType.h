@@ -10,7 +10,8 @@ public:
 		DISPATCHER,
 		COURIER,
 		COOK,
-		FRIDGE
+		FRIDGE,
+		SHOP
 	};
 
 	static std::string toString(Enum myEnum) {
@@ -33,6 +34,10 @@ public:
 			}
 			case PersonType::Enum::FRIDGE: {
 				return "FRIDGE";
+				break;
+			}
+			case PersonType::Enum::SHOP: {
+				return "SHOP";
 				break;
 			}
 		}

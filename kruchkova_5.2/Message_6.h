@@ -14,12 +14,8 @@ public:
 	string personName;
 
 	string message;
-
-	int id;
-
-
-
-
+	int personId;
+	int idToUser;
 
 	Message_6() {
 	}
@@ -27,7 +23,7 @@ public:
 	Message_6(Person &person, string message) {
 		this->personType = person.personType;
 		this->personName = person.personName;
-
+		this->personId = person.id;
 	}
 
 
@@ -36,7 +32,7 @@ public:
 	void serialize(Archive & ar)
 	{
 		//ar(personType, personName, message, *vec, *help);
-		ar(personType, personName, message);
+		ar(personType, personName, message, personId, idToUser);
 	}
 
 	string getPersonTypeSTR() {

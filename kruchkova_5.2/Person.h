@@ -23,10 +23,16 @@ public:
 
 	PersonType::Enum personType;
 	string personName;
+	int id;
 
 	Person(PersonType::Enum personType, string personName) {
 		this->personName = personName;
 		this->personType = personType;
+	};
+	Person(PersonType::Enum personType, string personName, int id) {
+		this->personName = personName;
+		this->personType = personType;
+		this->id = id;
 	};
 	Person() {};
 	~Person() {};
