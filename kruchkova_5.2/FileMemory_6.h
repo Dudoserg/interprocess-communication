@@ -55,12 +55,14 @@ public:
 
 	void init() {
 		// Создаем или открываем семафоры
-		int maxState = 3;
-		int startState= maxState;
+
+		int maxState = 8;
+		int startState = maxState;
 		hSem_put = createOrOpenSemaphore(semPutName, startState, maxState);
 		hSem_get = createOrOpenSemaphore(semGetName, 0, maxState);
 
-		hSem_put = createOrOpenSemaphore(semWriteName, 1, 1);
+		hSem_write = createOrOpenSemaphore(semWriteName, 1, 1);
+
 		bool opened = openOrcreateFile(fileMemoryName);
 		if (opened == false) {
 			//Запишем туда массив для хранения сообщений
@@ -155,7 +157,7 @@ public:
 		if (foundMessage == true) {
 			//		Если есть, то :	
 			//						Изымаем сообщение
-			message = (*message_arr_6->data)[index].get();
+			message = (*message_arr_6->data)[index].release();
 			(*message_arr_6->data).erase((*message_arr_6->data).begin() + index);
 			//						Сериализуем массив без одного сообщения
 			std::stringstream os;

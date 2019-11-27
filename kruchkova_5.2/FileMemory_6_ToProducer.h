@@ -55,12 +55,12 @@ public:
 
 	void init() {
 		// Создаем или открываем семафоры
-		int maxState = 3;
+		int maxState = 4;
 		int startState = maxState;
 		hSem_put = createOrOpenSemaphore(semPutName, startState, maxState);
 		hSem_get = createOrOpenSemaphore(semGetName, 0, maxState);
 
-		hSem_put = createOrOpenSemaphore(semWriteName, 1, 1);
+		hSem_write = createOrOpenSemaphore(semWriteName, 1, 1);
 		bool opened = openOrcreateFile(fileMemoryName);
 		if (opened == false) {
 			//Запишем туда массив для хранения сообщений
@@ -88,7 +88,7 @@ public:
 		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
 
 
-		WaitForSingleObject(this->hSem_write, INFINITE);	// Зашита для записи в канал
+		WaitForSingleObjectEx(this->hSem_write, INFINITE, TRUE);	// Зашита для записи в канал
 															// т.к. в канал имеет размер >1, 
 															// и в него одновременно могут писать несколько процессов
 															// Читам строку из файла
@@ -152,7 +152,8 @@ public:
 
 		//	Изымаем сообщение
 		//message = (*message_arr_6->data)[0];
-		message = (*message_arr_6->data)[0].get();
+		message = (*message_arr_6->data)[0].release();
+
 		(*message_arr_6->data).erase((*message_arr_6->data).begin() + 0);
 		//	Сериализуем массив без одного сообщения
 		std::stringstream os;
