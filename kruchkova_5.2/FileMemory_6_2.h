@@ -161,7 +161,7 @@ private:
 	}
 
 	void putMessage(Message_6_2 *message) {
-		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
+		//WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
 
 													// Сереализуем объект в строку
 		std::stringstream os;
@@ -182,18 +182,18 @@ private:
 		CopyMemory((PVOID)Buffer, p, cbData);
 
 		// освобождаем семафор на чтение, теперь с файла можно читать, т.к. мы записали в него инфу
-		ReleaseSemaphore(hSem_get, 1, NULL);
+		//ReleaseSemaphore(hSem_get, 1, NULL);
 	}
 
 	Message_6_2 *getMessage() {
-		WaitForSingleObject(hSem_get, INFINITE);		// 
+		//WaitForSingleObject(hSem_get, INFINITE);		// 
 
 														// Изымаем из файла данные
 		std::string result((char*)Buffer);
 
 		// Десериализуем объект из строки
 		std::stringstream is(result);
-		cout << result << endl;
+		//cout << result << endl;
 		Message_6_2 *message = new Message_6_2();
 		{
 			cereal::JSONInputArchive archive_in(is);
@@ -201,7 +201,7 @@ private:
 		}
 
 		// освобождаем семафор на запись, теперь в файл можно писать, т.к. инфу считали
-		ReleaseSemaphore(hSem_put, 1, NULL);
+		//ReleaseSemaphore(hSem_put, 1, NULL);
 		return message;
 	}
 

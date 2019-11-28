@@ -151,6 +151,7 @@
     <ClInclude Include="FileMemory.h" />
     <ClInclude Include="FileMemory_6.h" />
     <ClInclude Include="FileMemory_6_2.h" />
+    <ClInclude Include="FileMemory_6_2_message.h" />
     <ClInclude Include="FileMemory_6_ToProducer.h" />
     <ClInclude Include="GenerateSemaphore.h" />
     <ClInclude Include="Message.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="FileMemory.cpp" />
     <ClCompile Include="FileMemory_6.cpp" />
     <ClCompile Include="FileMemory_6_2.cpp" />
+    <ClCompile Include="FileMemory_6_2_message.cpp" />
     <ClCompile Include="FileMemory_6_ToProducer.cpp" />
     <ClCompile Include="GenerateSemaphore.cpp" />
     <ClCompile Include="kruchkova_5.2.cpp" />

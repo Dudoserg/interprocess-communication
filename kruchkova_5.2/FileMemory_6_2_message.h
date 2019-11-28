@@ -51,7 +51,7 @@ public:
 
 	}
 
-
+	// Пишем строку
 	void put(string str) {
 		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
 
@@ -77,6 +77,7 @@ public:
 		ReleaseSemaphore(hSem_get, 1, NULL);
 	}
 
+	// читаем строку
 	string get() {
 		WaitForSingleObject(hSem_get, INFINITE);		// 
 
@@ -98,10 +99,10 @@ public:
 
 private:
 	// fields
-	HANDLE hSem_get;
-	HANDLE hSem_put;
-	HANDLE FileMem;
-	char* Buffer;
+	HANDLE hSem_get;		// Семафор следящий, чтобы в канале было что читать
+	HANDLE hSem_put;		// Семафор следящий чтобы писать можно было только тогда, когда в канале пусто, иначе зависаем
+	HANDLE FileMem;			// Файл отображаемый на память
+	char* Buffer;			// Буфер файла
 
 
 	// methods
@@ -115,6 +116,7 @@ private:
 		delete[] buf;
 		return r;
 	}
+
 	HANDLE createOrOpenSemaphore(string hSemName, int startStatus) {
 		HANDLE sem = OpenSemaphore(SEMAPHORE_ALL_ACCESS, true, (s2ws(hSemName)).c_str());
 		if (sem == NULL) {
