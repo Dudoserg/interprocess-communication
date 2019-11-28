@@ -23,6 +23,9 @@ class FileMemory_6_2_message
 public:
 	string semPutName;
 	string semGetName;
+
+	string semChange;
+
 	string FileMemory_6_2_messageName;
 
 	FileMemory_6_2_message(string semPutName, string semGetName, string FileMemory_6_2_messageName) {
@@ -36,6 +39,8 @@ public:
 		this->semPutName = name + string("_PUT");
 		this->semGetName = name + string("_GET");
 		this->FileMemory_6_2_messageName = name + string("_FILE");
+		this->semChange = name + string("_CHANGE");
+
 		init();
 	}
 
@@ -45,15 +50,16 @@ public:
 	void init() {
 		// Создаем или открываем семафоры
 
-		hSem_put = createOrOpenSemaphore(semPutName, 1);
-		hSem_get = createOrOpenSemaphore(semGetName, 0);
+	/*	hSem_put = createOrOpenSemaphore(semPutName, 1);
+		hSem_get = createOrOpenSemaphore(semGetName, 0);*/
+		hSem_Change = createOrOpenSemaphore(semGetName, 1);
 		createFile(FileMemory_6_2_messageName);
 
 	}
 
 	// Пишем строку
 	void put(string str) {
-		WaitForSingleObject(hSem_put, INFINITE);	// сюда можем зайти, только если в файле пусто
+		WaitForSingleObject(hSem_Change, INFINITE);	// сюда можем зайти, только если в файле пусто
 
 													// Сереализуем объект в строку
 		//std::stringstream os;
@@ -74,12 +80,12 @@ public:
 		CopyMemory((PVOID)Buffer, p, cbData);
 
 		// освобождаем семафор на чтение, теперь с файла можно читать, т.к. мы записали в него инфу
-		ReleaseSemaphore(hSem_get, 1, NULL);
+		ReleaseSemaphore(hSem_Change, 1, NULL);
 	}
 
 	// читаем строку
 	string get() {
-		WaitForSingleObject(hSem_get, INFINITE);		// 
+		WaitForSingleObject(hSem_Change, INFINITE);		// 
 
 														// Изымаем из файла данные
 		std::string result((char*)Buffer);
@@ -93,7 +99,7 @@ public:
 		}*/
 
 		// освобождаем семафор на запись, теперь в файл можно писать, т.к. инфу считали
-		ReleaseSemaphore(hSem_put, 1, NULL);
+		ReleaseSemaphore(hSem_Change, 1, NULL);
 		return result;
 	}
 
@@ -101,6 +107,7 @@ private:
 	// fields
 	HANDLE hSem_get;		// Семафор следящий, чтобы в канале было что читать
 	HANDLE hSem_put;		// Семафор следящий чтобы писать можно было только тогда, когда в канале пусто, иначе зависаем
+	HANDLE hSem_Change;	
 	HANDLE FileMem;			// Файл отображаемый на память
 	char* Buffer;			// Буфер файла
 

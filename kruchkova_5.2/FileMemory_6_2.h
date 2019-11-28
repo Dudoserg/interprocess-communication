@@ -64,7 +64,7 @@ public:
 		ReleaseSemaphore(hSem_change, 1, NULL);
 		return message->numR;
 	}
-	void setNumr(int value) {
+	void setNumR(int value) {
 		WaitForSingleObject(hSem_change, INFINITE);
 		//
 		Message_6_2 *message = this->getMessage();
@@ -73,6 +73,14 @@ public:
 		//
 		ReleaseSemaphore(hSem_change, 1, NULL);
 	}
+
+	void numR_inc() {
+		setNumR(getNumR() + 1);
+	}
+	void numR_dec() {
+		setNumR(getNumR() - 1);
+	}
+
 
 	int getNumW() {
 		WaitForSingleObject(hSem_change, INFINITE);
@@ -92,6 +100,14 @@ public:
 		ReleaseSemaphore(hSem_change, 1, NULL);
 	}
 
+	void numW_inc() {
+		setNumW(getNumW() + 1);
+	}
+	void numW_dec() {
+		setNumW(getNumW() - 1);
+	}
+
+
 	int getWaitR() {
 		WaitForSingleObject(hSem_change, INFINITE);
 		//
@@ -110,6 +126,14 @@ public:
 		ReleaseSemaphore(hSem_change, 1, NULL);
 	}
 
+	void waitR_inc() {
+		setWaitR(getWaitR() + 1);
+	}
+	void waitR_dec() {
+		setWaitR(getWaitR() - 1);
+	}
+
+
 	int getWaitW() {
 		WaitForSingleObject(hSem_change, INFINITE);
 		//
@@ -126,6 +150,13 @@ public:
 		this->putMessage(message);
 		//
 		ReleaseSemaphore(hSem_change, 1, NULL);
+	}
+
+	void waitW_inc() {
+		setWaitW(getWaitW() + 1);
+	}
+	void waitW_dec() {
+		setWaitW(getWaitW() - 1);
 	}
 
 private:
